@@ -103,6 +103,23 @@ function getBugsOpenByUser($id){
     return $retour;
 }
 
+function getBugsResolve($id){
+    require "bootstrap.php";
+    $users = $entityManager->find('User', $id);
+    $bugs = $users->getAssignedBugs();
+    $tab1 = array();
+    $tab2 = array();
+    foreach ($bugs as $bug) {
+        if ($bug->getStatus() == "CLOSE"){
+            $tab2[] = $bug;
+        }else{
+            $tab1[] = $bug;
+        }
+    }
+    $retour = array($tab1, $tab2);
+    return $retour;
+}
+
 function getAllProducts(){
     require "bootstrap.php";
     $productRepository = $entityManager->getRepository('Product');
@@ -139,5 +156,21 @@ function ajouterNewBug(){
     $entityManager->flush();
 
     return "Le bug a été créé.";
+}
+
+function closeBug(){
+    $idbug = $_POST['bug'];
+    $note = $_POST['note'];
+
+    require "bootstrap.php";
+
+    $bug = $entityManager->find("Bug",$idbug);
+    $bug->setNote($note);
+    $bug->setStatus("CLOS");
+
+    $entityManager->persist($bug);
+    $entityManager->flush();
+    
+    return "Le bug est clos";
 }
 ?>
