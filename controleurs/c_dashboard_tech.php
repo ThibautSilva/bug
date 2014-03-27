@@ -21,12 +21,12 @@ switch($action){
         break;
     }
     case 'bugclos':{
-        if (isset($_POST['objet'])){
-            $message = ajouterNewBug();
+        if (isset($_POST['note'])){
+            $message = closeBug();
             include("vues/v_message.php");
         }
-        $the_products = getAllProducts();
-        include("vues/v_new_bug.php");
+        $idbug = $_REQUEST['idbug'];
+        include("vues/v_cloturer.php");
         break;
     }
 }

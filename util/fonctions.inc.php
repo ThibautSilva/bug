@@ -159,8 +159,8 @@ function ajouterNewBug(){
 }
 
 function closeBug(){
-    $idbug = $_POST['bug'];
-    $note = $_POST['note'];
+    $idbug = $_REQUEST['bug'];
+    $note = $_REQUEST['note'];
 
     require "bootstrap.php";
 
