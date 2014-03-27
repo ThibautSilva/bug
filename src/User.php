@@ -145,4 +145,12 @@ class User
         return $this->reportedBugs;
     }
 
+    /**
+     * @return \Bug[]
+     */
+    public function getAssignedBugs()
+    {
+        return $this->assignedBugs;
+    }
+
 }

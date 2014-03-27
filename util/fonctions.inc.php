@@ -170,7 +170,7 @@ function closeBug(){
 
     $entityManager->persist($bug);
     $entityManager->flush();
-    
+
     return "Le bug est clos";
 }
 ?>

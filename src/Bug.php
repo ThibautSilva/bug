@@ -19,6 +19,10 @@ class Bug
      **/
     protected $description;
     /**
+     * @Column(type="string")
+     **/
+    protected $note;
+    /**
      * @Column(type="datetime")
      **/
     protected $created;
@@ -56,6 +60,16 @@ class Bug
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    public function getNote()
+    {
+        return $this->note;
     }
 
     public function setCreated(DateTime $created)
