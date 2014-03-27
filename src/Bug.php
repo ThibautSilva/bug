@@ -19,7 +19,7 @@ class Bug
      **/
     protected $description;
     /**
-     * @Column(type="string")
+     * @Column(type="string",nullable=true)
      **/
     protected $note;
     /**
