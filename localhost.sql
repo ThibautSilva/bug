@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 26 Mars 2014 à 21:17
--- Version du serveur: 5.6.12-log
--- Version de PHP: 5.4.16
+-- Généré le: Jeu 27 Mars 2014 à 10:31
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.3.13
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données: `lms_bug`
 --
-CREATE DATABASE IF NOT EXISTS `lms_bug` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE `lms_bug` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `lms_bug`;
 
 -- --------------------------------------------------------
@@ -41,8 +41,7 @@ CREATE TABLE IF NOT EXISTS `bug_product` (
 --
 
 INSERT INTO `bug_product` (`bug_id`, `product_id`) VALUES
-(1, 2),
-(2, 1);
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -58,18 +57,22 @@ CREATE TABLE IF NOT EXISTS `bugs` (
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_1E197C9F8D8CDF1` (`engineer_id`),
   KEY `IDX_1E197C9E1CFE6F5` (`reporter_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `bugs`
 --
 
-INSERT INTO `bugs` (`id`, `engineer_id`, `reporter_id`, `resume`, `description`, `created`, `status`) VALUES
-(1, NULL, 2, 'Bug de Test', 'Bug de Test desciptif', '2014-03-21 16:22:50', 'OPEN'),
-(2, NULL, 2, NULL, 'Soucis sur la touche echap', '2014-03-21 15:28:14', 'OPEN');
+INSERT INTO `bugs` (`id`, `engineer_id`, `reporter_id`, `resume`, `description`, `created`, `status`, `note`) VALUES
+(1, 3, 2, 'Bug de Test', 'Bug de Test desciptif', '2014-03-21 16:22:50', 'Ouvert', NULL),
+(2, 3, 2, 'blabla', 'blabla descr bug ouvert', '2014-03-27 10:09:42', 'Ouvert', NULL),
+(3, 3, 2, 'resume bug clos', 'description bug clos', '2014-03-27 10:39:19', 'Clos', 'TEST Note d''un bug clos'),
+(4, NULL, 2, 'bug pas assign1', 'desc pas assign', '2014-03-07 00:00:00', 'Ouvert', NULL),
+(5, NULL, 2, 'bug pas assign2', 'descp pas assign2', '2014-03-18 00:00:00', 'Ouvert', NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `prenom`, `fonction`, `login`, `mdp`, `courriel`, `leClub`) VALUES
 (1, 'Silva', 'Thibaut', 'Responsable', 'tsilva', '12345', 'silva.thibaut@gmail.com', NULL),
-(2, 'Lemarquis', 'Sulivan', 'Club', 'slemarquis', '12345', 'lemarquis.sulivan55@gmail.com', 2),
+(2, 'Lemarquis', 'Sulivan', 'Club', 'slemarquis', '12345', 'lemarquis.sulivan55@gmail.com', NULL),
 (3, 'Marrucho', 'Helen', 'Technicien', 'hmarrucho', '12345', 'helen.marrucho@gmail.com', NULL);
 
 --
