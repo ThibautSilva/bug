@@ -103,7 +103,7 @@ function getBugsOpenByUser($id){
     return $retour;
 }
 
-function getBugsResolve($id){
+function getBugsAssign($id){
     require "bootstrap.php";
     $users = $entityManager->find('User', $id);
     $bugs = $users->getAssignedBugs();
