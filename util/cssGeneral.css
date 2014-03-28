@@ -42,8 +42,8 @@ input[type="submit"]
    width:95%;
 }
 .message{ 
-   background-color:rgb(99, 184, 255);
-   color:rgb(0,0,205);
+   background-color: rgb(182, 205, 205);
+   color: rgb(38, 38, 38);
    font-size:1.1em;
    width:95%;
 }

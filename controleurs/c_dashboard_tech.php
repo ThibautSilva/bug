@@ -20,16 +20,8 @@ switch($action){
         }
         $the_bugs = getBugsAssign($_SESSION['login']['id']);
         $bugs = array_merge($the_bugs[0],$the_bugs[1]);
+        $the_products = getAllProducts();
         include("vues/v_dashboard_tech.php");
-        break;
-    }
-    case 'bugclos':{
-        if (isset($_POST['note'])){
-            $message = closeBug();
-            include("vues/v_message.php");
-        }
-        $idbug = $_REQUEST['idbug'];
-        include("vues/v_cloturer.php");
         break;
     }
 }

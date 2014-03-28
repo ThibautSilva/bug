@@ -1,3 +1,7 @@
+<script type="text/javascript">
+    var prod = "<?php foreach($the_products as $p){echo "<option value='".$p->getId()."'>".$p->getName()."</option>";}?>";
+    modal(prod);
+</script>
 <div id="popup1" class="popup_block"></div>
 </br>
 <div id="divTicketsGrid">
@@ -11,6 +15,7 @@
             <th><a onclick=''>Description</a></th>
             <th></th>
         </tr>
+        <tr>
         <?php
         foreach ($bugs as $bug) {
             $bug->getCreated();
@@ -24,7 +29,7 @@
             echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey date' style='white-space:nowrap'>";
             echo $bug->getDescription()."</td>";
             if($bug->getStatus() == "Ouvert"){
-                echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' class='poplight grey'>Clore</a>";
+                echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='clore' class='poplight'>Clore</a></td>";
             }
         }
         ?>
@@ -36,8 +41,3 @@
         </tfoot>
     </table>
 </div>
-<script type="text/javascript">
-    jQuery(function($){
-        modal();
-    });
-</script>

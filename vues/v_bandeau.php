@@ -9,8 +9,7 @@
     <?php
         if(estConnecter()){
             echo '<li><a href="index.php?uc=dash"> Mon tableau de bord </a></li>';
-            //echo '<li><a href="index.php?uc=liste_tickets"> Incidents déclarés </a></li>';
-            echo '<li><a href="index.php?uc=dash&action=nouveau"> Nouvel incident</a></li>';
+            echo '<li><a href="#" data-width="500" data-rel="popup1" data-action="nouveau" class="poplight" >Nouvel incident</a></li>';
             echo '<li><a href="index.php?uc=deconnexion">Se déconnecter</a></li>';
         }else{
             echo '<li><a href="index.php?uc=accueil"> Accueil </a></li>';

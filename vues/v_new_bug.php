@@ -1,5 +1,5 @@
 
-<form name="new_bug" method="POST" action="index.php?uc=dash&action=nouveau">
+<form name="new_bug" method="POST" action="index.php?uc=dash&action=list">
     <fieldset>
     <legend>Signalement d'un nouveau bug</legend>
     <p>

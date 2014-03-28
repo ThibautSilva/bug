@@ -1,4 +1,9 @@
-</div>
+<script type="text/javascript">
+    var prod = "<?php foreach($the_products as $p){echo "<option value='".$p->getId()."'>".$p->getName()."</option>";}?>";
+    modal(prod);
+</script>
+
+
 <div id="popup1" class="popup_block"></div>
 </br>
 <div id="divTicketsGrid">
@@ -7,11 +12,11 @@
             <th style="width:100%"><a onclick=''>Titre</a></th>
             <th><a onclick=''>Affecté à</a> </th>
             <th><a onclick=''>Produit(s)</a></th>
-            <th><a onclick=''>Priorité</a></th>
             <th><a onclick=''>Statut</a></th>
             <th><a onclick=''>Date</a></th>
             <th><a onclick=''>Description</a></th>
         </tr>
+        <tr>
         <?php
         foreach ($bugs as $bug) {
             $bug->getCreated();
@@ -28,7 +33,7 @@
             foreach ($bug->getProducts() as $product) {
                 echo "- ".$product->getName()."</br>";
             }
-            echo "</td> <td class='grey priorityTd'><span style='color:green;'>Normal</span></td><td class='grey'>".$bug->getStatus();
+            echo "</td> <td class='grey'>".$bug->getStatus();
             echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey date' style='white-space:nowrap'>";
             echo $bug->getDescription()."</td>";
         }
@@ -41,8 +46,3 @@
         </tfoot>
     </table>
 </div>
-<script type="text/javascript">
-    jQuery(function($){
-        modal();
-    });
-</script>
