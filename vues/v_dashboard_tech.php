@@ -26,7 +26,6 @@
             if($bug->getStatus() == "Ouvert"){
                 echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' class='poplight grey'>Clore</a>";
             }
-            echo "</ul>";
         }
         ?>
         </tr>
