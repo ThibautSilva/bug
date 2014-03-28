@@ -1,32 +1,46 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Sulivan
- * Date: 28/03/14
- * Time: 14:10
- * To change this template use File | Settings | File Templates.
- */
 
-if(!isset($_REQUEST['action']))
-    $action = 'list';
-else
-    $action = $_REQUEST['action'];
+<div id="liste_tickets">
+    <h2>Tickets assigné en cours</h2>
 
-switch($action){
-    case 'list':{
-        $the_bugs = getAllBugs();
-        $bugs_en_cours = $the_bugs[0];
-        $bugs_fermes =  $the_bugs[1];
-        include("vues/v_dashboard_resp.php");
-        break;
-    }
-    case 'assign':{
-        if (isset($_POST['note'])){
-            $message = closeBug();
-            include("vues/v_message.php");
+    <?php
+    foreach ($bugs_en_cours as $bug) {
+        echo "<ul>";
+        echo "<li><img src='./images/en_cours.png' width='30px' height='30px'/></li>";
+        echo "<li>".$bug->getCreated()->format('d.m.Y')."</li>";
+        echo "<li> Produit(s) : ";
+        foreach ($bug->getProducts() as $product) {
+            echo "- ".$product->getName()." ";
         }
-        $idbug = $_REQUEST['idbug'];
-        include("vues/v_cloturer.php");
-        break;
+        echo "</li>";
+        echo "<li>".$bug->getDescription()."</li>";
+        if($bug->getStatus() == "Ouvert"){
+            echo "<li><a href='index.php?uc=dash&action=bugclos&idbug=".$bug->getId()."'>Cloturer le bug</a>";
+        }
+        echo "</ul>";
     }
-}
+    ?>
+</div>
+
+<div id="liste_tickets">
+    <h2>Tickets assigné fermés</h2>
+    <?php
+    foreach ($bugs_fermes as $bug) {
+        if ($bug->getEngineer() != null){
+            $engineer = $bug->getEngineer()->getName();
+        }else{
+            $engineer = "non affecté";
+        }
+        echo "<ul>";
+        echo "<li><img src='./images/ferme.png' width='30px' height='30px'/></li>";
+        echo "<li>".$bug->getCreated()->format('d.m.Y')."</li>";
+        echo "<li> affecté à : ".$engineer."</li>";
+        echo "<li> Produit(s) : ";
+        foreach ($bug->getProducts() as $product) {
+            echo "- ".$product->getName()." ";
+        }
+        echo "</li>";
+        echo "<li>".$bug->getDescription()."</li>";
+        echo "</ul>";
+    }
+    ?>
+</div>
