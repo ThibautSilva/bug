@@ -93,7 +93,7 @@ function getBugsOpenByUser($id){
     $tab1 = array();
     $tab2 = array();
     foreach ($bugs as $bug) {
-        if ($bug->getStatus() == "CLOSE"){
+        if ($bug->getStatus() == "Clos"){
             $tab2[] = $bug;
         }else{
             $tab1[] = $bug;
@@ -110,7 +110,7 @@ function getBugsAssign($id){
     $tab1 = array();
     $tab2 = array();
     foreach ($bugs as $bug) {
-        if ($bug->getStatus() == "CLOSE"){
+        if ($bug->getStatus() == "Clos"){
             $tab2[] = $bug;
         }else{
             $tab1[] = $bug;
@@ -150,7 +150,7 @@ function ajouterNewBug(){
     $bug = new Bug();
     $bug->setDescription($lib);
     $bug->setCreated(new DateTime("now"));
-    $bug->setStatus("OPEN");
+    $bug->setStatus("Ouvert");
 
     foreach ($apps as $productId) {
         $product = $entityManager->find("Product", $productId);
@@ -181,7 +181,7 @@ function closeBug(){
 
     $bug = $entityManager->find("Bug",$idbug);
     $bug->setNote($note);
-    $bug->setStatus("CLOS");
+    $bug->setStatus("Clos");
 
     $entityManager->persist($bug);
     $entityManager->flush();

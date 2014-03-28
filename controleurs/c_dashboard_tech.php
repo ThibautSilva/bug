@@ -14,9 +14,12 @@ else
 
 switch($action){
     case 'list':{
+        if (isset($_POST['note'])){
+            $message = closeBug();
+            include("vues/v_message.php");
+        }
         $the_bugs = getBugsAssign($_SESSION['login']['id']);
-        $bugs_en_cours = $the_bugs[0];
-        $bugs_fermes =  $the_bugs[1];
+        $bugs = array_merge($the_bugs[0],$the_bugs[1]);
         include("vues/v_dashboard_tech.php");
         break;
     }

@@ -12,7 +12,7 @@
             <th></th>
         </tr>
         <?php
-        foreach ($bugs_en_cours as $bug) {
+        foreach ($bugs as $bug) {
             $bug->getCreated();
             echo "<tr class='ticketRow'><td onclick=''><div class='grey2 ticketrowMeta'><br /><span>".$bug->getId()."</span></div>";
             echo $bug->getResume()."<div class='grey2 ticketAttr'><img src='./images/usericon.gif' alt='' />Par : ".$bug->getReporter()->getName()."</div>";
@@ -24,7 +24,7 @@
             echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey date' style='white-space:nowrap'>";
             echo $bug->getDescription()."</td>";
             if($bug->getStatus() == "Ouvert"){
-                echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' class='poplight'>Clore</a>";
+                echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' class='poplight grey'>Clore</a>";
             }
             echo "</ul>";
         }
