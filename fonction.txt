@@ -10,3 +10,4 @@ getAllProducts		Récupère tous les produits		    Tableau de produits
 ajouterNewBug		Ajoute un nouveau bug 			    Echo
 getBugsAssign       Récupère les bugs assigné           Array contenant les bugs assigné
 closeBug            Clos un bug                         Echo
+getAllBugs          Récupère tous les bugs              Tableau de bugs
