@@ -127,6 +127,15 @@ function getAllProducts(){
     return $products;
 }
 
+
+
+function getAllBugs(){
+    require "bootstrap.php";
+    $bugRepository = $entityManager->getRepository('Bug');
+    $bugs = $bugRepository->findAll();
+    return $bugs;
+}
+
 function ajouterNewBug(){
     $obj = $_POST['objet'];
     $lib = $_POST['libelle'];
