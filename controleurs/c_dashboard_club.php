@@ -15,20 +15,8 @@ else
 switch($action){
     case 'list':{
         $the_bugs = getBugsOpenByUser($_SESSION['login']['id']);
-        $bugs_en_cours = $the_bugs[0];
-        $bugs_fermes =  $the_bugs[1];
+        $bugs = array_merge($the_bugs[0],$the_bugs[1]);
         include("vues/v_dashboard_club.php");
         break;
     }
-    case 'nouveau':{
-        if (isset($_POST['objet'])){
-            $message = ajouterNewBug();
-            include("vues/v_message.php");
-        }
-        $the_products = getAllProducts();
-        include("vues/v_new_bug.php");
-        break;
-    }
 }
-
-
