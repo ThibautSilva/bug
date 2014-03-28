@@ -13,7 +13,9 @@
         }
         echo "</li>";
         echo "<li>".$bug->getDescription()."</li>";
-        echo "<li><a href='index.php?uc=dash&action=bugclos&idbug=".$bug->getId()."'>Cloturer le bug</a>";
+        if($bug->getStatus() == "Ouvert"){
+            echo "<li><a href='index.php?uc=dash&action=bugclos&idbug=".$bug->getId()."'>Cloturer le bug</a>";
+        }
         echo "</ul>";
     }
     ?>

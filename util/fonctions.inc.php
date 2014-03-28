@@ -128,7 +128,6 @@ function getAllProducts(){
 }
 
 
-
 function getAllBugs(){
     require "bootstrap.php";
     $bugRepository = $entityManager->getRepository('Bug');
@@ -165,6 +164,13 @@ function ajouterNewBug(){
     $entityManager->flush();
 
     return "Le bug a été créé.";
+}
+
+function updateAssign(){
+    $idbug = $_REQUEST['bug'];
+    $id_engineer = $_REQUEST['engineer'];
+
+
 }
 
 function closeBug(){
