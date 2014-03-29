@@ -148,6 +148,7 @@ function ajouterNewBug(){
     //$engineer = new User();
 
     $bug = new Bug();
+    $bug->setResume($obj);
     $bug->setDescription($lib);
     $bug->setCreated(new DateTime("now"));
     $bug->setStatus("Ouvert");

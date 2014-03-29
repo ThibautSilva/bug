@@ -14,6 +14,10 @@ else
 
 switch($action){
     case 'list':{
+        if (isset($_POST['objet'])){
+            $message = ajouterNewBug();
+            include("vues/v_message.php");
+        }
         $the_bugs = getBugsOpenByUser($_SESSION['login']['id']);
         $bugs = array_merge($the_bugs[0],$the_bugs[1]);
         $the_products = getAllProducts();
