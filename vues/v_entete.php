@@ -10,5 +10,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="util/modal.js"></script>
     <link rel="stylesheet" href="util/new.css" />
+    <link href="util/select2.css" rel="stylesheet"/>
+    <script src="util/select2.min.js"></script>
 </head>
 <body >

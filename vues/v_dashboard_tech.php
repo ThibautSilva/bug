@@ -1,7 +1,4 @@
-<script type="text/javascript">
-    var prod = "<?php foreach($the_products as $p){echo "<option value='".$p->getId()."'>".$p->getName()."</option>";}?>";
-    modal(prod);
-</script>
+
 <div id="popup1" class="popup_block"></div>
 </br>
 <div id="divTicketsGrid">
@@ -35,9 +32,13 @@
         ?>
         </tr>
         <tfoot>
-        <tr class="sortbottom">
-            <td class="grey tablefooter" colspan="8"></td>
-        </tr>
+            <tr class="sortbottom">
+                <td class="grey tablefooter" colspan="8"></td>
+            </tr>
         </tfoot>
     </table>
 </div>
+<script type="text/javascript">
+    var prod = "<?php foreach($the_products as $p){echo "<option value='".$p->getId()."'>".$p->getName()."</option>";}?>";
+    modal(prod);
+</script>
