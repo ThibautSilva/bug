@@ -1,0 +1,11 @@
+- affichage des bugs par date
+- Indiquer le nombre de bug ouvert
+- Indiquer le nombre de bug total
+- Indiquer le nombre de bug non assigné
+- Mettre une priorité sur les bugs (Haut, Normal, Bas)
+
+Partie Responsable :
+- Suppression
+- Ajout
+- Cloture
+
