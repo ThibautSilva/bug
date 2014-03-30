@@ -3,6 +3,8 @@
 - Indiquer le nombre de bug total
 - Indiquer le nombre de bug non assigné
 - Mettre une priorité sur les bugs (Haut, Normal, Bas)
+- Icone priorité
+- Icone bug ouvert / fermé
 
 Partie Responsable :
 - Suppression

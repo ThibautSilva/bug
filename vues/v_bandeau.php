@@ -1,6 +1,6 @@
 <div id="bandeau">
 <!-- Images En-t�te -->
-    <h1>HelpDesk Maison des ligues</h1>
+    <img src="images/iconemlg.png" alt="Icone maison des ligues" style="float: left;"><br><br><h1>HelpDesk Maison des ligues</h1>
 </div>
 <!--  Menu haut-->
 <ul id="menu">
