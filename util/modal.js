@@ -15,7 +15,7 @@ function modal(prod) {
         }
         if ($(this).data('action') == "engineer"){
             var idbug = $(this).data('id'); //Trouver l'id du bug
-            str = "<h2>Assigner le bug n"+idbug+"</h2><form name='assign_engineer' method='POST' action='index.php?uc=dash&action=list'><p><label for='engineer'>Liste des techniciens : </label><select name='engineer'>"+tech+"</select></p><input type='hidden' name='bug' value='"+idbug+"'><center><p><input type='submit' class='button' value='Valider' name='valider'></p></center></form>";
+            str = "<h2>Assigner le bug n"+idbug+"</h2><form name='assign_engineer' method='POST' action='index.php?uc=dash&action=list'><p><label for='engineer'>Liste des techniciens : </label><select name='engineer' id='engineer'>"+tech+"</select></p><input type='hidden' name='bug' value='"+idbug+"'><center><p><input type='submit' class='button' value='Valider' name='valider'></p></center></form>";
         }
 
 		$("#popup1").html("");
@@ -27,6 +27,7 @@ function modal(prod) {
             placeholder: "Choisir les produits",
             width: "copy"
         });
+        $("#engineer").select2();
 
 
         //Récupération du margin, qui permettra de centrer la fenêtre - on ajuste de 80px en conformité avec le CSS
