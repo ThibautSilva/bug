@@ -22,7 +22,7 @@
             foreach ($bug->getProducts() as $product) {
                 echo "- ".$product->getName()."</br>";
             }
-            echo "</td> <td class='grey priorityTd'><span style='color:green;'>Normal</span></td><td class='grey'>".$bug->getStatus();
+            echo "</td> <td class='grey priorityTd'><span style='color:green;'>".$bug->getPriorite()."</span></td><td class='grey'>".$bug->getStatus();
             echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey date' style='white-space:nowrap'>";
             echo $bug->getDescription()."</td>";
             if($bug->getStatus() == "Ouvert"){
