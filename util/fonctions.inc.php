@@ -182,7 +182,7 @@ function ajouterNewBug(){
 function updateAssign(){
     $idbug = $_REQUEST['bug'];
     $id_engineer = $_REQUEST['engineer'];
-
+    require "bootstrap.php";
     $engineer= $entityManager->find("User", $id_engineer);
     $bug = $entityManager->find("Bug",$idbug);
     $bug->setEngineer($engineer);
