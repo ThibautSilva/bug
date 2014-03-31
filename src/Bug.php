@@ -46,6 +46,27 @@ class Bug
      * @ManyToMany(targetEntity="Product")
      **/
     protected $products;
+    /**
+     * @Column(type="string")
+     **/
+    protected $priorite;
+
+    /**
+     * @param mixed $priorite
+     */
+    public function setPriorite($priorite)
+    {
+        $this->priorite = $priorite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPriorite()
+    {
+        return $this->priorite;
+    }
+
 
     public function getId()
     {

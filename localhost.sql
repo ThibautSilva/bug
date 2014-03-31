@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 27 Mars 2014 à 10:31
--- Version du serveur: 5.5.24-log
--- Version de PHP: 5.3.13
+-- Généré le: Lun 31 Mars 2014 à 08:32
+-- Version du serveur: 5.6.12-log
+-- Version de PHP: 5.4.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,8 +19,40 @@ SET time_zone = "+00:00";
 --
 -- Base de données: `lms_bug`
 --
-CREATE DATABASE `lms_bug` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `lms_bug` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `lms_bug`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `bugs`
+--
+
+CREATE TABLE IF NOT EXISTS `bugs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `engineer_id` int(11) DEFAULT NULL,
+  `reporter_id` int(11) DEFAULT NULL,
+  `resume` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `priorite` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_1E197C9F8D8CDF1` (`engineer_id`),
+  KEY `IDX_1E197C9E1CFE6F5` (`reporter_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `bugs`
+--
+
+INSERT INTO `bugs` (`id`, `engineer_id`, `reporter_id`, `resume`, `description`, `created`, `status`, `note`, `priorite`) VALUES
+(1, 3, 2, 'Bug de Test', 'Bug de Test desciptif', '2014-03-21 16:22:50', 'Ouvert', NULL, ''),
+(2, 3, 2, 'blabla', 'blabla descr bug ouvert', '2014-03-27 10:09:42', 'Ouvert', NULL, ''),
+(3, 3, 2, 'resume bug clos', 'description bug clos', '2014-03-27 10:39:19', 'Clos', 'TEST Note d''un bug clos', ''),
+(4, NULL, 2, 'bug pas assign1', 'desc pas assign', '2014-03-07 00:00:00', 'Ouvert', NULL, ''),
+(5, NULL, 2, 'bug pas assign2', 'descp pas assign2', '2014-03-18 00:00:00', 'Ouvert', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -42,37 +74,6 @@ CREATE TABLE IF NOT EXISTS `bug_product` (
 
 INSERT INTO `bug_product` (`bug_id`, `product_id`) VALUES
 (1, 2);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `bugs`
---
-
-CREATE TABLE IF NOT EXISTS `bugs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `engineer_id` int(11) DEFAULT NULL,
-  `reporter_id` int(11) DEFAULT NULL,
-  `resume` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `IDX_1E197C9F8D8CDF1` (`engineer_id`),
-  KEY `IDX_1E197C9E1CFE6F5` (`reporter_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
-
---
--- Contenu de la table `bugs`
---
-
-INSERT INTO `bugs` (`id`, `engineer_id`, `reporter_id`, `resume`, `description`, `created`, `status`, `note`) VALUES
-(1, 3, 2, 'Bug de Test', 'Bug de Test desciptif', '2014-03-21 16:22:50', 'Ouvert', NULL),
-(2, 3, 2, 'blabla', 'blabla descr bug ouvert', '2014-03-27 10:09:42', 'Ouvert', NULL),
-(3, 3, 2, 'resume bug clos', 'description bug clos', '2014-03-27 10:39:19', 'Clos', 'TEST Note d''un bug clos'),
-(4, NULL, 2, 'bug pas assign1', 'desc pas assign', '2014-03-07 00:00:00', 'Ouvert', NULL),
-(5, NULL, 2, 'bug pas assign2', 'descp pas assign2', '2014-03-18 00:00:00', 'Ouvert', NULL);
 
 -- --------------------------------------------------------
 
@@ -158,18 +159,18 @@ INSERT INTO `users` (`id`, `name`, `prenom`, `fonction`, `login`, `mdp`, `courri
 --
 
 --
--- Contraintes pour la table `bug_product`
---
-ALTER TABLE `bug_product`
-  ADD CONSTRAINT `FK_897D061D4584665A` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_897D061DFA3DB3D5` FOREIGN KEY (`bug_id`) REFERENCES `bugs` (`id`) ON DELETE CASCADE;
-
---
 -- Contraintes pour la table `bugs`
 --
 ALTER TABLE `bugs`
   ADD CONSTRAINT `FK_1E197C9E1CFE6F5` FOREIGN KEY (`reporter_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `FK_1E197C9F8D8CDF1` FOREIGN KEY (`engineer_id`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `bug_product`
+--
+ALTER TABLE `bug_product`
+  ADD CONSTRAINT `FK_897D061D4584665A` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_897D061DFA3DB3D5` FOREIGN KEY (`bug_id`) REFERENCES `bugs` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `users`
