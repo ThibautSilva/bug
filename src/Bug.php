@@ -29,7 +29,7 @@ class Bug
     /**
      * @Column(type="string")
      **/
-    protected $status;
+    protected $status = 'Ouvert';
 
     /**
      * @ManyToOne(targetEntity="User", inversedBy="assignedBugs", cascade={"persist"})
@@ -49,7 +49,7 @@ class Bug
     /**
      * @Column(type="string")
      **/
-    protected $priorite;
+    protected $priorite = 'Normal';
 
     /**
      * @param mixed $priorite
