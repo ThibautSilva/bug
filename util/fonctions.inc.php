@@ -169,7 +169,14 @@ function updateAssign(){
     $idbug = $_REQUEST['bug'];
     $id_engineer = $_REQUEST['engineer'];
 
+    $engineer= $entityManager->find("User", $id_engineer);
+    $bug = $entityManager->find("Bug",$idbug);
+    $bug->setEngineer($engineer);
 
+    $entityManager->persist($bug);
+    $entityManager->flush();
+
+    return "Le bug a bien été assigné";
 }
 
 function closeBug(){
