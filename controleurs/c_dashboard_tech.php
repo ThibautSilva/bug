@@ -18,6 +18,10 @@ switch($action){
             $message = closeBug();
             include("vues/v_message.php");
         }
+        if (isset($_POST['objet'])){
+            $message = ajouterNewBug();
+            include("vues/v_message.php");
+        }
         $the_bugs = getBugsAssign($_SESSION['login']['id']);
         $bugs = array_merge($the_bugs[0],$the_bugs[1]);
         $the_products = getAllProducts();

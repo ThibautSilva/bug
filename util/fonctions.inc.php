@@ -140,8 +140,6 @@ function ajouterNewBug(){
     $lib = $_POST['libelle'];
     $apps = $_POST['apps'];
 
-    //echo var_dump($apps);
-
     require "bootstrap.php";
 
     $reporter = $entityManager->find("User", $_SESSION['login']['id']);
