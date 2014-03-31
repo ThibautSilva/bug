@@ -135,6 +135,20 @@ function getAllBugs(){
     return $bugs;
 }
 
+function getAllTech(){
+    require "bootstrap.php";
+    $techRepository = $entityManager->getRepository('User');
+    $techs = $techRepository->findAll();
+
+    foreach ($techs as $tech) {
+        if ($tech->getFonction() == "Technicien"){
+            $listeTechs[] = $tech;
+        }
+    }
+
+    return $listeTechs;
+}
+
 function ajouterNewBug(){
     $obj = $_POST['objet'];
     $lib = $_POST['libelle'];

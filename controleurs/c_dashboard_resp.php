@@ -8,19 +8,26 @@ else
 
 switch($action){
     case 'list':{
-        if (isset($_POST['assign'])){
+        if (isset($_POST['note'])){
             $message = closeBug();
             include("vues/v_message.php");
         }
-        $the_bugs = getAllBugs();
-        include("vues/v_dashboard_resp.php");
-        break;
-    }
-    case 'assign':{
 
-        $idbug = $_REQUEST['idbug'];
-        //include("vues/v_assigner.php");
-        echo "test case assign";
+        if (isset($_POST['objet'])){
+            $message = ajouterNewBug();
+            include("vues/v_message.php");
+        }
+
+        if (isset($_POST['engineer'])){
+            $message = updateAssign();
+            include('vues/v_message.php');
+        }
+
+        $the_bugs = getAllBugs();
+        $the_products = getAllProducts();
+        $the_techs = getAllTech();
+
+        include("vues/v_dashboard_resp.php");
         break;
     }
 }

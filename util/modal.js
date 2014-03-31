@@ -12,7 +12,10 @@ function modal(prod) {
         }
         if ($(this).data('action') == "nouveau"){
             str = "<form name='new_bug' method='POST' action='index.php?uc=dash&action=list'><legend>Signalement d\'un nouveau bug</legend><p><label for='objet'>Objet : </label><input id='objet' type='text' name='objet' size='50' maxlength='50'></p><p><label for='libelle'>Description du problème : </label><textarea id='libelle' name='libelle' size='500' maxlength='500'></textarea></p><p><label for='apps'>Application(s) concernées : </label><select multiple id='apps' name='apps[]' width='400px'>"+prod+"</select></p><p><input type='submit' value='Valider' name='valider'><input type='reset' value='Annuler' name='annuler'></p></form>";
-
+        }
+        if ($(this).data('action') == "engineer"){
+            var idbug = $(this).data('id'); //Trouver l'id du bug
+            str = "<h2>Assigner le bug n"+idbug+"</h2><form name='assign_engineer' method='POST' action='index.php?uc=dash&action=list'><p><label for='engineer'>Liste des techniciens : </label><select name='engineer'>"+tech+"</select></p><input type='hidden' name='bug' value='"+idbug+"'><center><p><input type='submit' class='button' value='Valider' name='valider'></p></center></form>";
         }
 
 		$("#popup1").html("");
