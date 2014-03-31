@@ -11,4 +11,4 @@ ajouterNewBug		Ajoute un nouveau bug 			    Echo
 getBugsAssign       Récupère les bugs assigné           Array contenant les bugs assigné
 closeBug            Clos un bug                         Echo
 getAllBugs          Récupère tous les bugs              Tableau de bugs
-updateAssign        Modifie la personne assigné         Aucun
+updateAssign        Modifie la personne assigné         Void
