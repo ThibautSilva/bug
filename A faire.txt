@@ -8,6 +8,8 @@
 
 Partie Responsable :
 - Suppression
-- Ajout
+- Ajout d'un bug
+- Ajout d'une priorité
 - Cloture
+- Modifier une assignation
 
