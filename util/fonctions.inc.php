@@ -181,6 +181,10 @@ function closeBug(){
     $bug = $entityManager->find("Bug",$idbug);
     $bug->setNote($note);
     $bug->setStatus("Clos");
+    if($_SESSION['login']['fonction'] == 'Responsable'){
+        $assigned = $entityManager->find("User", $_SESSION['login']['id']);
+        $bug->setEngineer($assigned);
+    }
 
     $entityManager->persist($bug);
     $entityManager->flush();
