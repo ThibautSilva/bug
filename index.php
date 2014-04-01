@@ -20,12 +20,14 @@ switch($uc)
 {
 	case 'accueil':
 		{
-            include("vues/v_accueil.php");
-            include("vues/v_connexion.php");
+            header("Location:index.php?uc=dash");
             break;
         }
     case 'connexion':
         {
+            if (isset($_SESSION['login'])){
+                header("Location:index.php?uc=dash");
+            }
             if (isset($_POST['valider'])){
                 $pseudo = $_POST['pseudo'];
                 $mdp = $_POST['mdp'];
@@ -40,20 +42,6 @@ switch($uc)
                 include("vues/v_connexion.php");
             }
 
-            break;
-        }
-    case 'liste_tickets':
-        {
-            // on va chercher les tickets
-            require_once "bootstrap.php";
-
-            $dql = "SELECT b, e, r FROM Bug b JOIN b.engineer e JOIN b.reporter r ORDER BY b.created DESC";
-
-            $query = $entityManager->createQuery($dql);
-            $query->setMaxResults(30);
-            $bugs = $query->getResult();
-
-            include("vues/v_liste_tickets.php");
             break;
         }
     case 'dash':
