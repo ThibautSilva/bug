@@ -30,4 +30,14 @@ switch($action){
         include("vues/v_dashboard_resp.php");
         break;
     }
+    case 'suppr':{
+        $message = deletBug();
+        include('vues/v_message.php');
+
+        $the_bugs = getAllBugs();
+        $the_products = getAllProducts();
+        $the_techs = getAllTech();
+
+        include("vues/v_dashboard_resp.php");
+    }
 }

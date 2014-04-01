@@ -151,8 +151,13 @@ function getAllTech(){
 
 function ajouterNewBug(){
     $obj = $_POST['objet'];
+    if($obj==""){
+        return "Renseignez un objet svp";
+    }
     $lib = $_POST['libelle'];
-    $apps = $_POST['apps'];
+    if (isset($_POST['apps'])){
+        $apps = $_POST['apps'];
+    }
 
     require "bootstrap.php";
 
@@ -164,10 +169,11 @@ function ajouterNewBug(){
     $bug->setDescription($lib);
     $bug->setCreated(new DateTime("now"));
     $bug->setStatus("Ouvert");
-
-    foreach ($apps as $productId) {
-        $product = $entityManager->find("Product", $productId);
-        $bug->assignToProduct($product);
+    if(isset($apps)){
+        foreach ($apps as $productId) {
+            $product = $entityManager->find("Product", $productId);
+            $bug->assignToProduct($product);
+        }
     }
 
     $bug->setReporter($reporter);

@@ -12,6 +12,7 @@
             <th><a onclick=''>Date</a></th>
             <th><a onclick=''>Description</a></th>
             <th></th>
+            <th></th>
         </tr>
         <tr>
             <?php
@@ -36,12 +37,13 @@
                     if($bug->getStatus() == "Ouvert"){
                         echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='clore' class='poplight'>Clore</a></td>";
                     }
+                    echo "<td class='grey'><a href='index.php?uc=dash&action=suppr&bug=".$bug->getId()."' onclick=\"return confirm('Etes vous sûre de vouloir supprimer ce bug ?');\"><img src='images/close_pop.png' height='25px'></a></td>";
                 }
             ?>
         </tr>
         <tfoot>
             <tr class="sortbottom">
-                <td class="grey tablefooter" colspan="8"></td>
+                <td class="grey tablefooter" colspan="9"></td>
             </tr>
         </tfoot>
     </table>
