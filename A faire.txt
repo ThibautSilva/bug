@@ -5,6 +5,9 @@ OK - Indiquer le nombre de bug non assigné
 OK - Capture d'écran (declaration bug)
 OK - Redirection de la page connexion si on est déjà identifié
 OK - Ajout d'une colonne note de cloture dans les dashboard
+OK - Icone bug
+- Regroupé les css
+- Supprimé les elements inutile
 
 Partie Responsable :
 OK - Suppression (optionel - commencer)
