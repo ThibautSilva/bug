@@ -93,7 +93,7 @@ height: 1.8em ;
 #liste_tickets li, #liste_tickets li a {
 		list-style-type: none;
 		list-style-image:none;
-		display:inline; 
+		display:inline;
     width:175px;
     text-align:center;
     height:205px;
@@ -110,5 +110,9 @@ height: 1.8em ;
 
 #liste_tickets ul{
     border-top: 2px solid lightgrey;
+}
+#footer{
+    text-align: center;
+    color: #262626;
 }
 

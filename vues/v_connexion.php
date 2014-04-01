@@ -13,4 +13,5 @@
         <input type="submit" value="Valider" name="valider">
         <input type="reset" value="Annuler" name="annuler">
     </p>
+    </fieldset>
 </form>

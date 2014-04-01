@@ -51,7 +51,7 @@
         </tr>
         <tfoot>
             <tr class="sortbottom">
-                <td class="grey tablefooter" colspan="8"></td>
+                <td class="grey tablefooter" colspan="9"></td>
             </tr>
         </tfoot>
     </table>
