@@ -21,8 +21,12 @@
         <tr>
         <?php
         foreach ($bugs as $bug) {
-            $bug->getCreated();
             echo "<tr class='ticketRow'><td onclick=''><div class='grey2 ticketrowMeta'><br /><span>".$bug->getId()."</span></div>";
+            if($bug->getStatus() == "Ouvert"){
+                echo "<img src='images/en_cours.png' width='15px'>";
+            }else{
+                echo "<img src='images/ferme.png' width='15px'>";
+            }
             echo $bug->getResume()."<div class='grey2 ticketAttr'><img src='./images/usericon.gif' alt='' />Par : ".$bug->getReporter()->getName()."</div>";
             echo "</td><td class='grey'>";
             if ($bug->getEngineer() != null){

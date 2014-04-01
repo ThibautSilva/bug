@@ -4,7 +4,7 @@ OK - Indiquer le nombre de bug total
 OK - Indiquer le nombre de bug non assigné
 OK - Capture d'écran (declaration bug)
 OK - Redirection de la page connexion si on est déjà identifié
-- Ajout d'une colonne note de cloture dans les dashboard
+OK - Ajout d'une colonne note de cloture dans les dashboard
 
 Partie Responsable :
 OK - Suppression (optionel - commencer)
