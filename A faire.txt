@@ -2,7 +2,7 @@
 - Indiquer le nombre de bug ouvert
 - Indiquer le nombre de bug total
 - Indiquer le nombre de bug non assigné
-- Capture d'écran (declaration bug)
+OK - Capture d'écran (declaration bug)
 
 Partie Responsable :
 OK - Suppression (optionel - commencer)
