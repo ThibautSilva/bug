@@ -52,6 +52,11 @@ class Bug
     protected $priorite = 'Normal';
 
     /**
+     * @Column(type="string",nullable=true)
+     **/
+    protected $image;
+
+    /**
      * @param mixed $priorite
      */
     public function setPriorite($priorite)
@@ -65,6 +70,22 @@ class Bug
     public function getPriorite()
     {
         return $this->priorite;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
 

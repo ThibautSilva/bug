@@ -11,6 +11,7 @@
             <th><a onclick=''>Statut</a></th>
             <th><a onclick=''>Date</a></th>
             <th><a onclick=''>Description</a></th>
+            <th><a onclick=''>Capture d'écran</a></th>
             <th></th>
             <th></th>
         </tr>
@@ -34,6 +35,12 @@
                     echo "</td> <td class='grey priorityTd'><span style='color:green;'>Normal</span></td><td class='grey'>".$bug->getStatus();
                     echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey date' style='white-space:nowrap'>";
                     echo $bug->getDescription()."</td>";
+                    echo "<td class='grey'>";
+                    if ($bug->getImage() != ""){
+                        echo "<a href='".$bug->getImage()."' ><img src='images/imageico.png' height='25px'></a></td>";
+                    }else{
+                        echo "Aucune Capture</td>";
+                    }
                     if($bug->getStatus() == "Ouvert"){
                         echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='clore' class='poplight'>Clore</a></td>";
                     }
@@ -43,7 +50,7 @@
         </tr>
         <tfoot>
             <tr class="sortbottom">
-                <td class="grey tablefooter" colspan="9"></td>
+                <td class="grey tablefooter" colspan="10"></td>
             </tr>
         </tfoot>
     </table>

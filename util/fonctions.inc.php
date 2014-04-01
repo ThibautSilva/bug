@@ -181,8 +181,35 @@ function ajouterNewBug(){
 
     $entityManager->persist($bug);
     $entityManager->flush();
+//UPLOAD IMAGE
+    if (isset($_FILES['capture']) AND $_FILES['capture']['error'] == 0)
+    {
+        // Testons si le fichier n'est pas trop gros
+        if ($_FILES['capture']['size'] <= 1000000)
+        {
+            // Testons si l'extension est autorisée
+            $infosfichier = pathinfo($_FILES['capture']['name']);
+            $extension_upload = $infosfichier['extension'];
+            $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+            if (in_array($extension_upload, $extensions_autorisees))
+            {
+                // On peut valider le fichier et le stocker définitivement
+                $dossier = 'images/capturebug';
+                $name = $bug->getId();
+                move_uploaded_file($_FILES['capture']['tmp_name'], $dossier.'/'.$name.'.'.$extension_upload);
+                $bug->setImage($dossier.'/'.$name.'.'.$extension_upload);
+            }else{
+                return "Extension non acceptée.";
+            }
+        }else{
+            return "Image trop volumineuse.";
+        }
+    }
 
-    return "Le bug a été créé.";
+    $entityManager->persist($bug);
+    $entityManager->flush();
+
+    return "Le bug à été crée";
 }
 
 function updateAssign(){

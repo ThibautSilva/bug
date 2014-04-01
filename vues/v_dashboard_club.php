@@ -15,6 +15,7 @@
             <th><a onclick=''>Statut</a></th>
             <th><a onclick=''>Date</a></th>
             <th><a onclick=''>Description</a></th>
+            <th><a onclick=''>Capture d'écran</a></th>
         </tr>
         <tr>
         <?php
@@ -36,6 +37,12 @@
             echo "</td> <td class='grey'>".$bug->getStatus();
             echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey date' style='white-space:nowrap'>";
             echo $bug->getDescription()."</td>";
+            echo "<td class='grey'>";
+            if ($bug->getImage() != ""){
+                echo "<a href='".$bug->getImage()."' ><img src='images/imageico.png' height='25px'></a></td>";
+            }else{
+                echo "Aucune Capture</td>";
+            }
         }
         ?>
         </tr>
