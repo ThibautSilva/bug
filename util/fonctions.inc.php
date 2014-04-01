@@ -147,7 +147,7 @@ function getAllBugs(){
     }
     $tab1 = array_reverse($tab1);
     $tab2 = array_reverse($tab2);
-    $retour = array_merge($tab1, $tab2);
+    $retour = array($tab1, $tab2);
     return $retour;
 }
 

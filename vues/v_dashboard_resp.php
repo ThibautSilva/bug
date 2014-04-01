@@ -1,8 +1,9 @@
 
 <div id="popup1" class="popup_block"></div>
 </br>
+<strong style="margin-left: 15px"><?php echo $nbouvert; ?> Bug ouvert</strong>       <strong style="margin-left: 15px"><?php echo $nbclos; ?> Bug clos  </strong>      <strong style="margin-left: 15px"><?php echo $nbnonassigne; ?> Bug non assigné</strong>
 <div id="divTicketsGrid">
-    <table cellpadding="7" id="tblTickets" style="width:100%" class="horizseparated outerroundedbox">
+    <table cellpadding="10" id="tblTickets" style="width:100%" class="horizseparated outerroundedbox">
         <tr class="nobold" style="white-space:nowrap;">
             <th style="width:100%"><a onclick=''>Titre</a></th>
             <th><a onclick=''>Affecté à</a> </th>

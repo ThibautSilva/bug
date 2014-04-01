@@ -1,6 +1,7 @@
 
 <div id="popup1" class="popup_block"></div>
 </br>
+<strong style="margin-left: 15px"><?php echo $nbouvert; ?> Bug ouvert</strong>       <strong style="margin-left: 15px"><?php echo $nbclos; ?> Bug clos  </strong>
 <div id="divTicketsGrid">
     <table cellpadding="7" id="tblTickets" style="width:100%" class="horizseparated outerroundedbox">
         <tr class="nobold" style="white-space:nowrap;">

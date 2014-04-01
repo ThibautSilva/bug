@@ -23,7 +23,16 @@ switch($action){
             include('vues/v_message.php');
         }
 
-        $the_bugs = getAllBugs();
+        $bugs = getAllBugs();
+        $nbouvert = count($bugs[0]);
+        $nbclos = count($bugs[1]);
+        $nbnonassigne =0;
+        foreach ($bugs[0] as $bug) {
+            if ($bug->getEngineer() == null){
+                $nbnonassigne++;
+            }
+        }
+        $the_bugs = array_merge($bugs[0],$bugs[1]);
         $the_products = getAllProducts();
         $the_techs = getAllTech();
 
@@ -34,7 +43,16 @@ switch($action){
         $message = deletBug();
         include('vues/v_message.php');
 
-        $the_bugs = getAllBugs();
+        $bugs = getAllBugs();
+        $nbouvert = count($bugs[0]);
+        $nbclos = count($bugs[1]);
+        $nbnonassigne =0;
+        foreach ($bugs[0] as $bug) {
+            if ($bug->getEngineer() == null){
+                $nbnonassigne++;
+            }
+        }
+        $the_bugs = array_merge($bugs[0],$bugs[1]);
         $the_products = getAllProducts();
         $the_techs = getAllTech();
 

@@ -19,6 +19,8 @@ switch($action){
             include("vues/v_message.php");
         }
         $the_bugs = getBugsOpenByUser($_SESSION['login']['id']);
+        $nbouvert = count($the_bugs[0]);
+        $nbclos = count($the_bugs[1]);
         $bugs = array_merge($the_bugs[0],$the_bugs[1]);
         $the_products = getAllProducts();
         include("vues/v_dashboard_club.php");
