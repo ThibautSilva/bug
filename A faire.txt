@@ -1,4 +1,4 @@
-- affichage des bugs par date
+OK - affichage des bugs par date
 - Indiquer le nombre de bug ouvert
 - Indiquer le nombre de bug total
 - Indiquer le nombre de bug non assigné
@@ -6,5 +6,6 @@ OK - Capture d'écran (declaration bug)
 
 Partie Responsable :
 OK - Suppression (optionel - commencer)
+- Assignation sur bug clos à enlevé
 - Ajout d'une priorité
 
