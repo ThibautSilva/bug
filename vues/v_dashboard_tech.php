@@ -28,7 +28,7 @@
             echo $bug->getDescription()."</td>";
             echo "<td class='grey'>";
             if ($bug->getImage() != ""){
-                echo "<a href='".$bug->getImage()."' ><img src='images/imageico.png' height='25px'></a></td>";
+                echo "<a href='".$bug->getImage()."' ><img src='images/imageico.png' height='25px' target='blank'></a></td>";
             }else{
                 echo "Aucune Capture</td>";
             }
