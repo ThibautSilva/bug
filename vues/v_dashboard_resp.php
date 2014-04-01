@@ -23,7 +23,7 @@
                     if ($bug->getEngineer() != null){
                         $engineer = $bug->getEngineer()->getName();
                     }else{
-                        $engineer = "non affecté";
+                        $engineer = "Non affecté";
                     }
                     echo $engineer."</a></td>";
                     echo "</td><td class='grey'>";

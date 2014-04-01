@@ -21,6 +21,10 @@
         </select>
     </p>
     <p>
+        <label for="capture">Capture d'écran éventuelle... </label>
+        <input type="file" id="file" name="file">
+    </p>
+    <p>
         <input type="submit" value="Valider" name="valider">
         <input type="reset" value="Annuler" name="annuler">
     </p>

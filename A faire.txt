@@ -5,11 +5,9 @@
 - Mettre une priorité sur les bugs (Haut, Normal, Bas)
 - Icone priorité
 - Icone bug ouvert / fermé
+- Capture d'écran (declaration bug)
 
 Partie Responsable :
-- Suppression
-- Ajout d'un bug
+- Suppression (optionel - commencer)
 - Ajout d'une priorité
-- Cloture
-- Modifier une assignation
 
