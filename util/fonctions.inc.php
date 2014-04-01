@@ -99,6 +99,8 @@ function getBugsOpenByUser($id){
             $tab1[] = $bug;
         }
     }
+    array_reverse($tab1);
+    array_reverse($tab2);
     $retour = array($tab1, $tab2);
     return $retour;
 }
@@ -116,6 +118,8 @@ function getBugsAssign($id){
             $tab1[] = $bug;
         }
     }
+    $tab1 = array_reverse($tab1);
+    $tab2 = array_reverse($tab2);
     $retour = array($tab1, $tab2);
     return $retour;
 }
@@ -132,7 +136,19 @@ function getAllBugs(){
     require "bootstrap.php";
     $bugRepository = $entityManager->getRepository('Bug');
     $bugs = $bugRepository->findAll();
-    return $bugs;
+    $tab1 = array();
+    $tab2 = array();
+    foreach ($bugs as $bug) {
+        if ($bug->getStatus() == "Clos"){
+            $tab2[] = $bug;
+        }else{
+            $tab1[] = $bug;
+        }
+    }
+    $tab1 = array_reverse($tab1);
+    $tab2 = array_reverse($tab2);
+    $retour = array_merge($tab1, $tab2);
+    return $retour;
 }
 
 function getAllTech(){

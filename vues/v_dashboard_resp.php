@@ -41,10 +41,11 @@
                     }else{
                         echo "Aucune Capture</td>";
                     }
+                    echo "<td class='grey'>";
                     if($bug->getStatus() == "Ouvert"){
-                        echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='clore' class='poplight'>Clore</a></td>";
+                        echo "<a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='clore' class='poplight'>Clore</a>";
                     }
-                    echo "<td class='grey'><a href='index.php?uc=dash&action=suppr&bug=".$bug->getId()."' onclick=\"return confirm('Etes vous sûre de vouloir supprimer ce bug ?');\"><img src='images/close_pop.png' height='25px'></a></td>";
+                    echo "</td><td class='grey'><a href='index.php?uc=dash&action=suppr&bug=".$bug->getId()."' onclick=\"return confirm('Etes vous sûre de vouloir supprimer ce bug ?');\"><img src='images/close_pop.png' height='25px'></a></td>";
                 }
             ?>
         </tr>
