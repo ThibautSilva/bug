@@ -21,13 +21,19 @@
                     $bug->getCreated();
                     echo "<tr class='ticketRow'><td onclick=''><div class='grey2 ticketrowMeta'><br /><span>".$bug->getId()."</span></div>";
                     echo $bug->getResume()."<div class='grey2 ticketAttr'><img src='./images/usericon.gif' alt='' />Par : ".$bug->getReporter()->getName()."</div>";
-                    echo "</td><td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='engineer' class='poplight'>";
+                    echo "</td><td class='grey'>";
+                    if($bug->getStatus() == "Ouvert"){
+                        echo "<a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='engineer' class='poplight'>";
+                    }
                     if ($bug->getEngineer() != null){
                         $engineer = $bug->getEngineer()->getName();
                     }else{
                         $engineer = "Non affecté";
                     }
-                    echo $engineer."</a></td>";
+                    echo $engineer;
+                    if($bug->getStatus() == "Ouvert"){
+                        echo "</a>";
+                    }
                     echo "</td><td class='grey'>";
                     foreach ($bug->getProducts() as $product) {
                         echo "- ".$product->getName()."</br>";
@@ -58,6 +64,6 @@
 </div>
 <script type="text/javascript">
     var prod = "<?php foreach($the_products as $p){echo "<option value='".$p->getId()."'>".$p->getName()."</option>";}?>";
-    var tech = "<?php foreach($the_techs as $t){echo "<option value='".$t->getId()."'>".$t->getName()."</option>";}?>";
+    var tech = "<?php foreach($the_techs as $t){echo "<option value='".$t->getId()."'>".$t->getName()." (".$t->getNbAssign().")</option>";}?>";
     modal(prod);
 </script>

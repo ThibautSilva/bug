@@ -6,6 +6,6 @@ OK - Capture d'écran (declaration bug)
 
 Partie Responsable :
 OK - Suppression (optionel - commencer)
-- Assignation sur bug clos à enlevé
+OK - Assignation sur bug clos à enlevé
 - Ajout d'une priorité
-
+OK - Nombre de bug assigné par technicien

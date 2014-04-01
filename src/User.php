@@ -153,4 +153,10 @@ class User
         return $this->assignedBugs;
     }
 
+    public function getNbAssign()
+    {
+        $bugs = $this->getAssignedBugs();
+        $nbAssign = count($bugs);
+        return $nbAssign;
+    }
 }
