@@ -213,14 +213,15 @@ function closeBug(){
     return "Le bug est clos";
 }
 
-function delectBug(){
+function deletBug(){
     $idbug = $_REQUEST['bug'];
-    $note = $_REQUEST['note'];
 
     require "bootstrap.php";
 
     $bug = $entityManager->find("Bug",$idbug);
+    $entityManager->remove($bug);
+    $entityManager->flush();
 
-
+    return "Bug supprimé";
 }
 ?>

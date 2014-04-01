@@ -12,3 +12,4 @@ getBugsAssign       Récupère les bugs assigné           Array contenant les b
 closeBug            Clos un bug                         Echo
 getAllBugs          Récupère tous les bugs              Tableau de bugs
 updateAssign        Modifie la personne assigné         Void
+deletBug            Supprime un bug                     Void
