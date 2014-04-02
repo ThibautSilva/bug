@@ -44,8 +44,16 @@
                     foreach ($bug->getProducts() as $product) {
                         echo "- ".$product->getName()."</br>";
                     }
-                    echo "</td> <td class='grey priorityTd'><span style='color:green;'>".$bug->getPriorite()."</span></td><td class='grey'>".$bug->getStatus();
-                    echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey date' style='white-space:nowrap'>";
+                    echo "</td> <td class='grey priorityTd'><span style='color:green;'>";
+                    if($bug->getStatus() == "Ouvert"){
+                        echo "<a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='prio' class='poplight'>";
+                    }
+                    echo $bug->getPriorite();
+                    if($bug->getStatus() == "Ouvert"){
+                        echo "</a>";
+                    }
+                    echo "</span></td><td class='grey'>".$bug->getStatus();
+                    echo "</td><td class='grey date' style='white-space:nowrap'>".$bug->getCreated()->format('d.m.Y')."</td><td class='grey'>";
                     echo $bug->getDescription()."</td>";
                     if($bug->getStatus() != "Ouvert"){
                         echo "<td class='grey'>".$bug->getNote()."</td>";

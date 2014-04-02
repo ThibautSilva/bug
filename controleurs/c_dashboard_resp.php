@@ -23,6 +23,11 @@ switch($action){
             include('vues/v_message.php');
         }
 
+        if (isset($_POST['prio'])){
+            $message = updatePrio();
+            include('vues/v_message.php');
+        }
+
         $bugs = getAllBugs();
         $nbouvert = count($bugs[0]);
         $nbclos = count($bugs[1]);

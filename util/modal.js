@@ -17,6 +17,10 @@ function modal(prod) {
             var idbug = $(this).data('id'); //Trouver l'id du bug
             str = "<h2>Assigner le bug n"+idbug+"</h2><form name='assign_engineer' method='POST' action='index.php?uc=dash&action=list'><p><label for='engineer'>Liste des techniciens : </label><select name='engineer' id='engineer'>"+tech+"</select></p><input type='hidden' name='bug' value='"+idbug+"'><center><p><input type='submit' class='button' value='Valider' name='valider'></p></center></form>";
         }
+        if ($(this).data('action') == "prio"){
+            var idbug = $(this).data('id'); //Trouver l'id du bug
+            str = "<form name='prio_bug' method='POST' action='index.php?uc=dash&action=list'><legend>Niveau de priorité</legend><input type='radio' name='prio' value='Haut'>Haut</input><input type='radio' name='prio' value='Normal'>Normal</input><input type='radio' name='prio' value='Bas'>Bas</input><p><input type='hidden' name='bug' value='"+idbug+"'><input type='submit' class='button' value='Valider' name='valider'></p></form>";
+        }
 
 		$("#popup1").html("");
         $("#popup1").html(str);

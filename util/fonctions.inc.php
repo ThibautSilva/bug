@@ -236,10 +236,21 @@ function updateAssign(){
     $bug = $entityManager->find("Bug",$idbug);
     $bug->setEngineer($engineer);
 
-    $entityManager->persist($bug);
     $entityManager->flush();
 
     return "Le bug a bien été assigné";
+}
+
+function updatePrio(){
+    $idbug = $_REQUEST['bug'];
+    $prio = $_REQUEST['prio'];
+    require "bootstrap.php";
+    $bug = $entityManager->find("Bug",$idbug);
+    $bug->setPriorite($prio);
+
+    $entityManager->flush();
+
+    return "L'indice de priorité a été mis à jour";
 }
 
 function closeBug(){
