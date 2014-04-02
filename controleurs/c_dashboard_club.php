@@ -14,14 +14,14 @@ else
 
 switch($action){
     case 'list':{
-        if (isset($_POST['objet'])){
-            $message = ajouterNewBug();
+        if (isset($_POST['objet'])){  // Si l'objet est passé
+            $message = ajouterNewBug(); // On ajoute un new bug
             include("vues/v_message.php");
         }
-        $the_bugs = getBugsOpenByUser($_SESSION['login']['id']);
-        $nbouvert = count($the_bugs[0]);
-        $nbclos = count($the_bugs[1]);
-        $bugs = array_merge($the_bugs[0],$the_bugs[1]);
+        $the_bugs = getBugsOpenByUser($_SESSION['login']['id']); //Recupere la liste des bugs. Ouvert par le club
+        $nbouvert = count($the_bugs[0]); // Compte le nombre bug ouvert
+        $nbclos = count($the_bugs[1]); // Compte le nombre de bug fermé
+        $bugs = array_merge($the_bugs[0],$the_bugs[1]); // Rassemblement des deux tableaux
         $the_products = getAllProducts();
         include("vues/v_dashboard_club.php");
         break;

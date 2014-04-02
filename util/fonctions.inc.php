@@ -86,25 +86,27 @@ function authentifierUser($l,$m){
     }
 }
 
+//Fonction qui va rechercher les bugs du clubs
 function getBugsOpenByUser($id){
     require "bootstrap.php";
     $users = $entityManager->find('User', $id);
     $bugs = $users->getReportedBugs();
     $tab1 = array();
     $tab2 = array();
-    foreach ($bugs as $bug) {
-        if ($bug->getStatus() == "Clos"){
+    foreach ($bugs as $bug) { //Trier les bugs
+        if ($bug->getStatus() == "Clos"){ //Si clos, le bug va dans le tab2
             $tab2[] = $bug;
-        }else{
+        }else{ //Sinon le bug va dans le tab1
             $tab1[] = $bug;
         }
     }
-    array_reverse($tab1);
+    array_reverse($tab1); //Inverse le sens du tableau
     array_reverse($tab2);
     $retour = array($tab1, $tab2);
     return $retour;
 }
 
+//Fonction qui va rechercher les bugs assignés au technicien
 function getBugsAssign($id){
     require "bootstrap.php";
     $users = $entityManager->find('User', $id);
@@ -124,6 +126,7 @@ function getBugsAssign($id){
     return $retour;
 }
 
+//Fonction qui va rechercher la totalité des produits
 function getAllProducts(){
     require "bootstrap.php";
     $productRepository = $entityManager->getRepository('Product');
@@ -131,7 +134,7 @@ function getAllProducts(){
     return $products;
 }
 
-
+//Fonction qui va rechercher la totalité des bugs
 function getAllBugs(){
     require "bootstrap.php";
     $bugRepository = $entityManager->getRepository('Bug');
@@ -151,6 +154,7 @@ function getAllBugs(){
     return $retour;
 }
 
+//Fonction qui va rechercher l'ensemble des techniciens
 function getAllTech(){
     require "bootstrap.php";
     $techRepository = $entityManager->getRepository('User');
@@ -165,6 +169,7 @@ function getAllTech(){
     return $listeTechs;
 }
 
+//Fonction qui permet de créer un nouveau bug
 function ajouterNewBug(){
     $obj = $_POST['objet'];
     if($obj==""){
@@ -197,6 +202,7 @@ function ajouterNewBug(){
 
     $entityManager->persist($bug);
     $entityManager->flush();
+
 //UPLOAD IMAGE
     if (isset($_FILES['capture']) AND $_FILES['capture']['error'] == 0)
     {
@@ -228,6 +234,7 @@ function ajouterNewBug(){
     return "Le bug à été crée";
 }
 
+//Function qui permet d'un technicien à un bug
 function updateAssign(){
     $idbug = $_REQUEST['bug'];
     $id_engineer = $_REQUEST['engineer'];
@@ -241,6 +248,7 @@ function updateAssign(){
     return "Le bug a bien été assigné";
 }
 
+//Fonction qui permet modifier le niveau de priorite
 function updatePrio(){
     $idbug = $_REQUEST['bug'];
     $prio = $_REQUEST['prio'];
@@ -253,6 +261,7 @@ function updatePrio(){
     return "L'indice de priorité a été mis à jour";
 }
 
+//Fonction qui permet de clos un bug
 function closeBug(){
     $idbug = $_REQUEST['bug'];
     $note = $_REQUEST['note'];
@@ -273,6 +282,7 @@ function closeBug(){
     return "Le bug est clos";
 }
 
+//Fonction qui permet de supprimeer un bug
 function deletBug(){
     $idbug = $_REQUEST['bug'];
 

@@ -20,7 +20,7 @@
         </tr>
         <tr>
         <?php
-        foreach ($bugs as $bug) {
+        foreach ($bugs as $bug) { // Afficher la liste des bugs dans un tableau
             echo "<tr class='ticketRow'><td onclick=''><div class='grey2 ticketrowMeta'><br /><span>".$bug->getId()."</span></div>";
             if($bug->getStatus() == "Ouvert"){
                 echo "<img src='images/en_cours.png' width='15px'>";

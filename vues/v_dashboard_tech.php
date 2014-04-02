@@ -43,7 +43,7 @@
             }else{
                 echo "Aucune Capture</td>";
             }
-            if($bug->getStatus() == "Ouvert"){
+            if($bug->getStatus() == "Ouvert"){// Pour le lien qui suit, data-width correspond à la taille du popup, data-rel correspond a l'id du div qui va etre afficher en popup.
                 echo "<td class='grey'><a href='#' data-width='500' data-id='".$bug->getId()."' data-rel='popup1' data-action='clore' class='poplight'>Clore</a></td>";
             }
         }

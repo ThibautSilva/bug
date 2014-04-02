@@ -28,12 +28,12 @@ switch($action){
             include('vues/v_message.php');
         }
 
-        $bugs = getAllBugs();
+        $bugs = getAllBugs(); // Recupere tout les bugs
         $nbouvert = count($bugs[0]);
         $nbclos = count($bugs[1]);
         $nbnonassigne =0;
-        foreach ($bugs[0] as $bug) {
-            if ($bug->getEngineer() == null){
+        foreach ($bugs[0] as $bug) { // Parcours les bugs ouverts
+            if ($bug->getEngineer() == null){ //Si le bug n'est pas assigné, on incrémente le nombre de bug non assigné
                 $nbnonassigne++;
             }
         }
@@ -45,7 +45,7 @@ switch($action){
         break;
     }
     case 'suppr':{
-        $message = deletBug();
+        $message = deletBug(); //Supprime le bug
         include('vues/v_message.php');
 
         $bugs = getAllBugs();
