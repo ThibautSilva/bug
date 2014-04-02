@@ -100,8 +100,8 @@ function getBugsOpenByUser($id){
             $tab1[] = $bug;
         }
     }
-    array_reverse($tab1); //Inverse le sens du tableau
-    array_reverse($tab2);
+    $tab1 = array_reverse($tab1); //Inverse le sens du tableau
+    $tab2 = array_reverse($tab2);
     $retour = array($tab1, $tab2);
     return $retour;
 }
