@@ -1,4 +1,4 @@
-Fonction 			? 				                    Retour
+﻿Fonction 			? 				                    Retour
 estUnCp			    Test un code Postal			        Vrai ou Faux
 estEntier		    Test si entier				        Vrai ou Faux
 estUnMail		    Test un mail				        Vrai ou Faux
@@ -13,3 +13,4 @@ closeBug            Clos un bug                         Echo
 getAllBugs          Récupère tous les bugs              Tableau de bugs
 updateAssign        Modifie la personne assigné         Void
 deletBug            Supprime un bug                     Void
+Dell
